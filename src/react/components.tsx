@@ -47,17 +47,13 @@ export const Admonition = ({ type, title, children } : AdmonitionProps) => {
   }
   return (
     <Alert variant='left-accent' status={getStatus()} mb='1rem' mt='0rem' borderRadius='4px' >
-      <Flex>
-        <Flex>
-          <AlertIcon alignSelf='flex-start' mt={1}/>
-          <AlertTitle>{getTitle()}</AlertTitle>
-        </Flex>
-        <Flex>
-          <AlertDescription>
+      <AlertIcon/>
+      <Box>
+        <AlertTitle>{getTitle()}</AlertTitle>
+        <AlertDescription>
           {children}
-          </AlertDescription>
-        </Flex>
-      </Flex>
+        </AlertDescription>
+      </Box>
     </Alert>
   )
 }
