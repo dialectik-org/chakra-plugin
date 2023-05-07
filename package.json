@@ -1,0 +1,26 @@
+{
+  "name": "@dialectik/chakra-plugin",
+  "version": "0.0.5",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Dialectik plugin for Chakra UI components",
+  "types": "lib/index.d.mts",
+  "module": "lib/index.mjs",
+  "main": "lib/index.mjs",
+  "scripts": {
+    "build": "rm -rf ./lib/* && tsc && cp -r ./src/react ./lib"
+  },
+  "keywords": [
+    "Dialectik",
+    "plugin",
+    "Chakra UI"
+  ],
+  "author": "benoit.rognier@edukera.com",
+  "license": "MIT",
+  "dependencies": {
+    "@dialectik/plugin-interface": "^1.0.13",
+    "remark-parse": "^10.0.1"
+  }
+}
