@@ -1,6 +1,6 @@
 {
   "name": "@dialectik/chakra-plugin",
-  "version": "0.0.16",
+  "version": "0.0.21",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -20,6 +20,8 @@
   "author": "benoit.rognier@edukera.com",
   "license": "MIT",
   "devDependencies": {
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react": "^2.6.1",
     "@dialectik/plugin-interface": "^1.0.13"
   },
   "dependencies": {

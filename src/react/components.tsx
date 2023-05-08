@@ -3,6 +3,8 @@ import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Card, Link as ChLi
 
 // @ts-ignore
 import React from 'react';
+// @ts-ignore
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 interface AdmonitionProps {
   type: string;
@@ -85,16 +87,17 @@ const ChakraLink = ({ children, href } : { children : any, href : any }) => {
       isExternal={!onPage}
     >
       {children}
+      <ExternalLinkIcon mx='2px' />
     </ChLink>
   );
 }
 
 export const getComponents = () => {
   return {
-    h1: (props : any) => <Heading as='h1' size='2xl' mt='0rem' mb='1.25rem' children={props.children} />,
-    h2: (props : any) => <Heading as='h2' size='xl' mt='3rem' mb='0.5rem' children={props.children} />,
-    h3: (props : any) => <Heading as='h3' size='lg' children={props.children} />,
-    p: (props : any) => <Text fontSize='lg' mt='0rem' mb='1.25rem'  lineHeight='1.7' children={props.children} />,
+    h1: (props : any) => <Heading as='h1' size='xl' mt='0rem' mb='1.25rem' children={props.children} />,
+    h2: (props : any) => <Heading as='h2' size='lg' mt='3rem' mb='0.5rem' children={props.children} />,
+    h3: (props : any) => <Heading as='h3' size='md' children={props.children} />,
+    p: (props : any) => <Text fontSize='md' mt='0rem' mb='1.25rem'  lineHeight='1.7' children={props.children} />,
     ul: (props : any) => <UnorderedList mb='1.15rem' children={props.children} />,
     li: (props : any) => <ListItem mt='0.25rem' children={props.children}/>,
     ol: (props : any) => <OrderedList children={props.children}/>,

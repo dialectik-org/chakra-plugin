@@ -19,7 +19,7 @@ import React from 'react';
 // @ts-ignore
 const components : MDXComponents = [[getcomponents]]
 
-const { Heading, Code, Alert, Table, Card, Button } = chakraTheme.components
+const { Heading, Code, Alert, Table, Card, Button, Link, Divider, Tabs, Accordion } = chakraTheme.components
 
 const theme = extendBaseTheme({
   components: {
@@ -28,7 +28,11 @@ const theme = extendBaseTheme({
     Alert,
     Table,
     Card,
-    Button
+    Button,
+    Link,
+    Divider,
+    Tabs,
+    Accordion
   },
 })
 
@@ -73,7 +77,7 @@ function getInitialColorMode(mode : Mode) {
 
 root.render(
   <React.StrictMode>
-    <ChakraBaseProvider theme={theme} resetCss={false}>
+    <ChakraBaseProvider theme={theme} >
       <ColorModeScript initialColorMode={getInitialColorMode(mode)} />
       { isDev() ? <DevPage /> : <Content components={ components }/> }
     </ChakraBaseProvider>
