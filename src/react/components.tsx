@@ -1,5 +1,5 @@
 // @ts-ignore
-import { Flex, Alert, AlertDescription, AlertIcon, AlertTitle, Box, Card, Link as ChLink, Code, Heading, ListItem, OrderedList, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Card, Link as ChLink, Code, Heading, ListItem, OrderedList, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList } from '@chakra-ui/react'
 
 // @ts-ignore
 import React from 'react';

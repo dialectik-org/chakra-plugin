@@ -1,17 +1,16 @@
 // @ts-ignore
 import Content from './content.md';
 // @ts-ignore
-import { ChakraBaseProvider, extendBaseTheme } from '@chakra-ui/react'
+import { ChakraBaseProvider, extendBaseTheme, useTheme } from '@chakra-ui/react'
 // @ts-ignore
-import { Box, IconButton, useColorMode } from "@chakra-ui/react";
+import { Box, IconButton, useColorMode, ColorModeScript } from "@chakra-ui/react";
 // `@chakra-ui/theme` is a part of the base install with `@chakra-ui/react`
 // @ts-ignore
 import chakraTheme from '@chakra-ui/theme'
 // @ts-ignore
 import ReactDOM from 'react-dom/client';
 // @ts-ignore
-import { FaMoon, FaSun } from "react-icons/fa";
-
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 // @ts-ignore
 import React from 'react';
 
@@ -37,7 +36,16 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const Page = () => {
+type Mode = 'html' | 'h5p' | 'dev'
+
+// @ts-ignore
+const mode : Mode = [[mode]]
+
+function isDev() : boolean {
+  return mode === 'dev'
+}
+
+const DevPage = () => {
   const { toggleColorMode, colorMode } = useColorMode();
   return (
     <Box position="relative" h="100vh">
@@ -49,16 +57,25 @@ const Page = () => {
         right={4} // Add this property
         top={4}
         onClick={toggleColorMode}
-        icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
+        icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
       />
       <Content components={ components }/>
   </Box>)
 }
 
+function getInitialColorMode(mode : Mode) {
+  switch(mode) {
+    case 'dev' : return 'system';
+    case 'h5p' : return 'light';
+    case 'html': return 'system';
+  }
+}
+
 root.render(
   <React.StrictMode>
-    <ChakraBaseProvider theme={theme}>
-      <Page />
+    <ChakraBaseProvider theme={theme} resetCss={false}>
+      <ColorModeScript initialColorMode={getInitialColorMode(mode)} />
+      { isDev() ? <DevPage /> : <Content components={ components }/> }
     </ChakraBaseProvider>
   </React.StrictMode>
 );
